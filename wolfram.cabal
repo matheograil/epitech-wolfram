@@ -1,0 +1,99 @@
+cabal-version: 1.12
+
+-- This file has been generated from package.yaml by hpack version 0.35.1.
+--
+-- see: https://github.com/sol/hpack
+
+name:           wolfram
+version:        0.1.0.0
+synopsis:       The goal of this project is to implement Wolfram’s elementary cellular automaton in the terminal.
+description:    The goal of this project is to implement Wolfram’s elementary cellular automaton in the terminal.
+                https://en.wikipedia.org/wiki/Elementary_cellular_automaton
+                You only have to implement rule 30, rule 90 and rule 110. The other rules are considered a bonus.
+                The space your cellular automaton are living in is infinite (to the left, right, and bottom). This means the parts not shown on screen can still have an effect on future generations.
+category:       Studies
+homepage:       https://github.com/matheograil/wolfram#readme
+bug-reports:    https://github.com/matheograil/wolfram/issues
+author:         Mathéo Grail
+maintainer:     grail.matheo@protonmail.com
+copyright:      2023 Mathéo Grail
+license:        BSD3
+build-type:     Simple
+
+source-repository head
+  type: git
+  location: https://github.com/matheograil/wolfram
+
+library
+  exposed-modules:
+      MandatoryArgs
+      OptionalArgs
+      Rule
+      Rule110
+      Rule30
+      Rule90
+      Utils
+  other-modules:
+      Paths_wolfram
+  hs-source-dirs:
+      src
+  default-extensions:
+      DeriveGeneric
+      LambdaCase
+      NamedFieldPuns
+      OverloadedStrings
+      TupleSections
+      TypeApplications
+      TypeOperators
+      ViewPatterns
+  ghc-options: -Wall -Wcompat -Wincomplete-record-updates -Wincomplete-uni-patterns -Wredundant-constraints -O2
+  build-depends:
+      base >=4.7 && <5
+  default-language: Haskell2010
+
+executable wolfram
+  main-is: Main.hs
+  other-modules:
+      Paths_wolfram
+  hs-source-dirs:
+      app
+  default-extensions:
+      DeriveGeneric
+      LambdaCase
+      NamedFieldPuns
+      OverloadedStrings
+      TupleSections
+      TypeApplications
+      TypeOperators
+      ViewPatterns
+  ghc-options: -Wall -Wcompat -Wincomplete-record-updates -Wincomplete-uni-patterns -Wredundant-constraints -O2 -threaded -rtsopts -with-rtsopts "-N -T"
+  build-depends:
+      base >=4.7 && <5
+    , wolfram
+  default-language: Haskell2010
+
+test-suite wolfram-test
+  type: exitcode-stdio-1.0
+  main-is: Spec.hs
+  other-modules:
+      Paths_wolfram
+  hs-source-dirs:
+      tests
+  default-extensions:
+      DeriveGeneric
+      LambdaCase
+      NamedFieldPuns
+      OverloadedStrings
+      TupleSections
+      TypeApplications
+      TypeOperators
+      ViewPatterns
+  ghc-options: -Wall -Wcompat -Wincomplete-record-updates -Wincomplete-uni-patterns -Wredundant-constraints -O2 -threaded -rtsopts -with-rtsopts "-N -T"
+  build-depends:
+      base >=4.7 && <5
+    , hedgehog
+    , tasty
+    , tasty-hedgehog
+    , tasty-hunit
+    , wolfram
+  default-language: Haskell2010
