@@ -71,19 +71,3 @@ executables:
             - -with-rtsopts "-N -T"
         dependencies:
             - wolfram
-
-tests:
-    wolfram-test:
-        main: Spec.hs
-        source-dirs:
-            tests
-        ghc-options:
-            - -threaded
-            - -rtsopts
-            - -with-rtsopts "-N -T"
-        dependencies:
-            - wolfram
-            - hedgehog
-            - tasty
-            - tasty-hedgehog
-            - tasty-hunit

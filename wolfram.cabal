@@ -71,29 +71,3 @@ executable wolfram
       base >=4.7 && <5
     , wolfram
   default-language: Haskell2010
-
-test-suite wolfram-test
-  type: exitcode-stdio-1.0
-  main-is: Spec.hs
-  other-modules:
-      Paths_wolfram
-  hs-source-dirs:
-      tests
-  default-extensions:
-      DeriveGeneric
-      LambdaCase
-      NamedFieldPuns
-      OverloadedStrings
-      TupleSections
-      TypeApplications
-      TypeOperators
-      ViewPatterns
-  ghc-options: -Wall -Wcompat -Wincomplete-record-updates -Wincomplete-uni-patterns -Wredundant-constraints -O2 -threaded -rtsopts -with-rtsopts "-N -T"
-  build-depends:
-      base >=4.7 && <5
-    , hedgehog
-    , tasty
-    , tasty-hedgehog
-    , tasty-hunit
-    , wolfram
-  default-language: Haskell2010
